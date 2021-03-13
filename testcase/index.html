@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SP.shop</title>
+</head>
+<body>
+    <header class="header">
+        <a href="#" class="header__logo">
+            <img src="img/logo.svg" alt="logo">
+        </a>
+        <ul class="header-menu">
+            <li class="header-menu__item">
+                Women’s         
+            </li>
+            <li class="header-menu__item">
+                Men’s                                    
+            </li>
+            <li class="header-menu__item">
+                Home
+            </li>
+            <li class="header-menu__item">
+                Travel
+            </li>
+            <li class="header-menu__item">
+                Beauty
+            </li>
+            <li class="header-menu__item">
+                Sale
+            </li>
+        </ul>
+        <div class="header-actions">
+            <a href="#">
+                <img src="img/search.svg" alt="search">
+            </a>
+            <a href="#" class="basket">
+                <span class="basket__count">2</span>
+                <img src="img/basket.svg" alt="basket">
+            </a>
+        </div>
+    </header>
+    <section class="main">
+        <section class="content">
+            <div class="shop-steps">
+                <span>1</span>
+                <span>2</span>
+                <span class="active">3</span>
+                <span>4</span>
+            </div>
+            <div class="billing">
+                <h1 class="billing__heading">Billing Information</h1>
+                <form action="#" class="billing-form">
+                    <div class="billing-form__paymethod">
+                        <input type="radio" id="credit_card" name="pay_method" value="credit_card">
+                        <label for="credit_card">Pay with Credit Card</label><br>
+
+                        <input type="radio" id="paypal" name="pay_method" value="paypal">
+                        <label for="paypal"><img src="img/playpal.png" alt=""></label><br>
+                    </div>
+
+                    <div class="billing-form__creditcard">
+                        <label for="name_of_card">Name on card</label>
+                        <input type="text" placeholder="Placeholder Text" name="name_of_card" id="name_of_card" class="billing-form__input billing-form__input_name">
+
+                        <label for="card_number_1">Card number</label>
+                        <div class="billing-form__num-row">
+                            <input type="number" name="card_number_1" id="card_num_1" class="input-text billing-form__input billing-form__input_num" minlength="4" maxlength="4">
+                            <input type="number" name="card_number_2" id="card_num_2" class="input-text billing-form__input billing-form__input_num" minlength="4" maxlength="4">
+                            <input type="number" name="card_number_3" id="card_num_3" class="input-text billing-form__input billing-form__input_num" minlength="4" maxlength="4">
+                            <input type="number" name="card_number_4" id="card_num_4" class="input-text billing-form__input billing-form__input_num" minlength="4" maxlength="4">
+                        </div>
+
+                        <div class="billing-form__num-exp">
+                            <label for="expire_date">Expire date</label>
+                            <input type="number" name="expire_date" id="expire_date" class="billing-form__input billing-form__input_num" minlength="3" maxlength="3">
+
+                            <label for="cvv_code">CVV code <span class="billing-form__question">?</span></label>
+                            <input type="number" name="cvv_code" id="cvv_code" class="billing-form__input billing-form__input_num" minlength="3" maxlength="3">
+                        </div>
+                    </div>
+
+                    <input type="checkbox" name="save_infornation" id="save_infornation" class="billing-form__checkbox">
+                    <label for="save_infornation">Save information of this credit card</label>
+
+                    <input type="checkbox" name="privacy_policies" id="privacy_policies" class="billing-form__checkbox">
+                    <label for="privacy_policies">I accept the <a href="#">terms and comditions</a> and the <a href="#">Privacy Policies</a></label>
+
+                    <div class="billing-form__buttons">
+                        <button class="billing-form__back">
+                            Back
+                        </button>
+                        <button class="submit" class="btn billing-form__checkout">
+                            Check Out
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </section>
+        <section class="sidebar">
+            <ul class="sidebar__basket">
+                <li class="sidebar-basket-item">
+                    <div class="sidebar-basket-item__img">                    
+                        <img src="img/jacket.png" alt="jacket">
+                    </div>
+                    <div class="sidebar-basket-item__data">
+                        <span class="sidebar-basket-item__name">Amet minim mollit non deserunt ullamco est sit</span>
+
+                        <div class="sidebar-basket-item__price-row">
+                            <a href="sidebar-basket-item__minus"><img src="img/minus_btn.svg" alt="minus"></a>
+                            <span class="sidebar-basket-item__count">1</span>
+                            <a href="sidebar-basket-item__plus"><img src="img/plus_btn.svg" alt="plus"></a>
+                            <span class="sidebar-basket-item__price">$ 525</span>
+                        </div>                        
+                    </div>
+                    
+                    <div class="sidebar-basket-item__delete">
+                        <a href="#" class="sidebar-basket-item__delete-btn">
+                            <img src="img/del_btn.svg" alt="del">
+                        </a>
+                    </div>
+                </li>
+
+                <li class="sidebar-basket-item">
+                    <div class="sidebar-basket-item__img">                    
+                        <img src="img/sneakers.png" alt="sneakers">
+                    </div>
+                    <div class="sidebar-basket-item__data">
+                        <span class="sidebar-basket-item__name">Amet minim mollit non</span>
+
+                        <div class="sidebar-basket-item__price-row">
+                            <a href="sidebar-basket-item__minus"><img src="img/minus_btn.svg" alt="minus"></a>
+                            <span class="sidebar-basket-item__count">1</span>
+                            <a href="sidebar-basket-item__plus"><img src="img/plus_btn.svg" alt="plus"></a>
+                            <span class="sidebar-basket-item__price">$ 525</span>
+                        </div>                        
+                    </div>
+                    
+                    <div class="sidebar-basket-item__delete">
+                        <a href="#" class="sidebar-basket-item__delete-btn">
+                            <img src="img/del_btn.svg" alt="del">
+                        </a>
+                    </div>
+                </li>
+            </ul>
+
+            <div class="sidebar__promo">
+                <h2 class="sidebar__heading">Promo code</h1>
+                <form action="#" class="promocode-form">
+                    <input type="text" class="promocode-form__input" placeholder="Placeholder Text">
+                    <button type="submit" class="btn promocode-form__btn">
+                        Apply
+                    </button>
+                </form>
+            </div>
+
+            <div class="sidebar__total-price">
+                <div class="total-price">               
+                    <div class="total-price__row">
+                        <span class="total-price__label">Subtotal</span>
+                        <span class="total-price__value">$1 050</span>
+                    </div>
+                    <div class="total-price__row">
+                        <span class="total-price__label">Tax</span>
+                        <span class="total-price__value">$100</span>
+                    </div>
+                    <div class="total-price__row">
+                        <span class="total-price__label">Shipping</span>
+                        <span class="total-price__value">$150</span>
+                    </div>
+                    <div class="total-price__row total-price__row_main">
+                        <span class="total-price__label">Total</span>
+                        <span class="total-price__value">$1 300</span>
+                    </div>
+                </div>  
+            </div>
+        </section>
+    </section>
+</body>
+</html>
