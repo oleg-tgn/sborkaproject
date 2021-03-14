@@ -6,7 +6,7 @@
 
 body {
     font-family: 'Roboto', sans-serif;
-    background: #e5e5e5;
+    /* background: #e5e5e5; */
 }
 
 a {    
@@ -241,15 +241,15 @@ ul {
     margin-top: 20px;
 }
 
-.billing-input {
+.billing-form__input {
     background: #ededf1;
     border: 0;
     border-radius: 3px;
-    padding: 8px 10px;
+    padding: 13px 10px;
     font-size: 14px;
 }
 
-.billing-input::placeholder {
+.billing-form__input::placeholder {
     color: #8e90a6;
 }
 
@@ -261,6 +261,9 @@ ul {
     width: 100%;
 }
 
+.billing-form__input_promocode {
+    margin-right: 10px;
+}
 
 .billing-form__num-row {
     display: flex;
@@ -314,7 +317,7 @@ ul {
     display: block;
     position: absolute;
     left: 0;
-    top: -3px;
+    top: -1px;
     width: 18px;
     height: 18px;
     background: #ffffff;
@@ -324,7 +327,7 @@ ul {
 .billing-form__checkbox:checked + .billing-form__checkbox-label:after {
     content: "";
     position: absolute;
-    top: 7px;
+    top: 9px;
     left: 10px;
     transform: translate(-50%, -50%);
     display: block;
@@ -333,12 +336,94 @@ ul {
     background: #3366ff;    
 }
 
-/* sidebar */
-.sidebar {
-    border-left: 1px solid #cfcfcf;
+.billing-form__btn {
+    padding: 13px 30px;
+    border-radius: 3px;
+    font-size: 14px;    
+    line-height: 1;
 }
 
+.billing-form__btn_back {    
+    background: #ffffff;
+    border: 1px solid #cfcfcf; 
+    color: #000000;
+}
+
+.billing-form__btn_checkout {   
+    background: #3366ff;
+    border: 1px solid #3366ff; 
+    color: #ffffff;
+}
+
+/* sidebar */
+.sidebar {
+    width: 410px;
+    max-width: 100%;    
+    border-left: 1px solid #cfcfcf;    
+}
+
+.sidebar__section {
+    display: block;    
+    padding: 40px;
+    border-bottom: 1px solid #cfcfcf;
+}
+
+.sidebar__section:last-child {
+    border-bottom: none;
+}
+
+.sidebar__heading {
+    font-size: 18px;
+    line-height: 1;
+    margin-bottom: 30px;
+}
 
 .sidebar__basket {
+    margin-top: 30px;
+}
 
+.sidebar-basket-item {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 40px;
+}
+
+.sidebar-basket-item:last-child {
+    margin-bottom: 0;
+}
+
+.sidebar-basket-item__img {
+    margin-right: 10px;
+}
+
+.sidebar-basket-item__data {
+    margin-right: 25px;
+}
+
+.sidebar-basket-item__price-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    margin-top: 15px;
+}
+
+/*Total Price*/
+.total-price {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.total-price__row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 25px;
+    font-size: 14px;
+}
+
+.total-price__row_main {
+    font-size: 18px;
+    font-weight: 700;
 }
