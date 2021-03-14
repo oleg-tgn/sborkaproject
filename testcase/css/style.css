@@ -36,6 +36,23 @@ ul {
     line-height: 1;
 }
 
+@media (max-width: 1024px) {
+    .header-menu {
+        display: none;
+    }
+}
+
+.header-actions__burger {
+    display: none;
+}
+
+@media (max-width: 1024px) {
+    .header-actions__burger {
+        display: inline-block;
+        margin-left: 25px;
+    }
+}
+
 .header-menu__item:not(:last-child) {
     margin-right: 30px;
 }
@@ -77,6 +94,12 @@ ul {
     flex-direction: column;
     width: calc(100% - 410px);
     padding: 60px 65px;
+}
+
+@media (max-width: 1024px) {
+    .content {
+        width: 100%;
+    }
 }
 
 /* Steps */
@@ -360,6 +383,12 @@ ul {
     width: 410px;
     max-width: 100%;    
     border-left: 1px solid #cfcfcf;    
+}
+
+@media (max-width: 1024px) {
+    .sidebar {
+        display: none;
+    }
 }
 
 .sidebar__section {
