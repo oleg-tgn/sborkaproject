@@ -4,16 +4,20 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SP.shop</title>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/style.css">
-    <title>SP.shop</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+    <script src="js/main.js"></script>
 </head>
-<body>
+<body>  
+    <div id="app">
     <header class="header">
         <a href="#" class="header__logo">
             <img src="img/logo.svg" alt="logo">
+            
         </a>
         <ul class="header-menu">
             <li class="header-menu__item">
@@ -135,49 +139,27 @@
             <div class="sidebar__section">
                 <h2 class="sidebar__heading">My basket</h2>
                 <ul class="sidebar__basket">
-                    <li class="sidebar-basket-item">
+                    <li class="sidebar-basket-item" v-for="(item, index) in basket">
                         <div class="sidebar-basket-item__img">                    
-                            <img src="img/jacket.png" alt="jacket">
+                            <img :src="item.img" :alt="item.name">
                         </div>
                         <div class="sidebar-basket-item__data">
-                            <span class="sidebar-basket-item__name">Amet minim mollit non deserunt ullamco est sit</span>
+                            <span class="sidebar-basket-item__name">{{ item.name }}</span>
 
                             <div class="sidebar-basket-item__price-row">
                                 <a href="sidebar-basket-item__minus"><img src="img/minus_btn.svg" alt="minus"></a>
-                                <span class="sidebar-basket-item__count">1</span>
+                                <span class="sidebar-basket-item__count">{{ item.count }}</span>
                                 <a href="sidebar-basket-item__plus"><img src="img/plus_btn.svg" alt="plus"></a>
-                                <span class="sidebar-basket-item__price">$ 525</span>
+                                <span class="sidebar-basket-item__price">$ {{ item.price }}</span>
                             </div>                        
                         </div>
                         
                         <div class="sidebar-basket-item__delete">
-                            <a href="#" class="sidebar-basket-item__delete-btn">
+                            <a href="#" class="sidebar-basket-item__delete-btn" @click="deleteItem(index)">
                                 <img src="img/del_btn.svg" alt="del">
                             </a>
                         </div>
-                    </li>
-
-                    <li class="sidebar-basket-item">
-                        <div class="sidebar-basket-item__img">                    
-                            <img src="img/sneakers.png" alt="sneakers">
-                        </div>
-                        <div class="sidebar-basket-item__data">
-                            <span class="sidebar-basket-item__name">Amet minim mollit non</span>
-
-                            <div class="sidebar-basket-item__price-row">
-                                <a href="sidebar-basket-item__minus"><img src="img/minus_btn.svg" alt="minus"></a>
-                                <span class="sidebar-basket-item__count">1</span>
-                                <a href="sidebar-basket-item__plus"><img src="img/plus_btn.svg" alt="plus"></a>
-                                <span class="sidebar-basket-item__price">$ 525</span>
-                            </div>                        
-                        </div>
-                        
-                        <div class="sidebar-basket-item__delete">
-                            <a href="#" class="sidebar-basket-item__delete-btn">
-                                <img src="img/del_btn.svg" alt="del">
-                            </a>
-                        </div>
-                    </li>
+                    </li>                   
                 </ul>
             </div>  
             <div class="sidebar__section">                
@@ -196,24 +178,27 @@
                     <div class="total-price">               
                         <div class="total-price__row">
                             <span class="total-price__label">Subtotal</span>
-                            <span class="total-price__value">$1 050</span>
+                            <span class="total-price__value">${{getSubtotal | format }}</span>
                         </div>
                         <div class="total-price__row">
                             <span class="total-price__label">Tax</span>
-                            <span class="total-price__value">$100</span>
+                            <span class="total-price__value">${{tax}}</span>
                         </div>
                         <div class="total-price__row">
                             <span class="total-price__label">Shipping</span>
-                            <span class="total-price__value">$150</span>
+                            <span class="total-price__value">${{shipping}}</span>
                         </div>
                         <div class="total-price__row total-price__row_main">
                             <span class="total-price__label">Total</span>
-                            <span class="total-price__value">$1 300</span>
+                            <span class="total-price__value">${{getTotal | format }}</span>
                         </div>
                     </div>  
                 </div>
             </div>
         </section>
     </section>
+    </div><!--vue app-->
+
+    <script src="js/main.js"></script>
 </body>
 </html>
