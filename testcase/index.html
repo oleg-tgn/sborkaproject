@@ -72,39 +72,49 @@
                 <h1 class="billing__heading">Billing Information</h1>
                 <form action="#" class="billing-form">
                     <div class="billing-form__paymethod">
-                        <input type="radio" id="credit_card" name="pay_method" value="credit_card">
-                        <label for="credit_card">Pay with Credit Card</label><br>
+                        <input type="radio" id="credit_card" name="pay_method" value="credit_card" class="billing-form__radio">
+                        <label for="credit_card" class="billing-form__radio-label">Pay with Credit Card</label>
 
-                        <input type="radio" id="paypal" name="pay_method" value="paypal">
-                        <label for="paypal"><img src="img/playpal.png" alt=""></label><br>
+                        <input type="radio" id="paypal" name="pay_method" value="paypal" class="billing-form__radio">
+                        <label for="paypal" class="billing-form__radio-label"><img src="img/playpal.png" alt=""></label><br>
                     </div>
 
                     <div class="billing-form__creditcard">
-                        <label for="name_of_card">Name on card</label>
-                        <input type="text" placeholder="Placeholder Text" name="name_of_card" id="name_of_card" class="billing-form__input billing-form__input_name">
+                        <label for="name_of_card" class="billing-form__credit-label">Name on card</label>
+                        <input type="text" placeholder="Placeholder Text" name="name_of_card" id="name_of_card" class="billing-input billing-form__input billing-form__input_name">
 
-                        <label for="card_number_1">Card number</label>
+                        <label for="card_number_1" class="billing-form__credit-label">Card number</label>
                         <div class="billing-form__num-row">
-                            <input type="number" name="card_number_1" id="card_num_1" class="input-text billing-form__input billing-form__input_num" minlength="4" maxlength="4">
-                            <input type="number" name="card_number_2" id="card_num_2" class="input-text billing-form__input billing-form__input_num" minlength="4" maxlength="4">
-                            <input type="number" name="card_number_3" id="card_num_3" class="input-text billing-form__input billing-form__input_num" minlength="4" maxlength="4">
-                            <input type="number" name="card_number_4" id="card_num_4" class="input-text billing-form__input billing-form__input_num" minlength="4" maxlength="4">
+                            <input type="number" name="card_number_1" id="card_num_1" class="billing-input billing-form__input billing-form__input_num" minlength="4" maxlength="4">
+                            <input type="number" name="card_number_2" id="card_num_2" class="billing-input billing-form__input billing-form__input_num" minlength="4" maxlength="4">
+                            <input type="number" name="card_number_3" id="card_num_3" class="billing-input billing-form__input billing-form__input_num" minlength="4" maxlength="4">
+                            <input type="number" name="card_number_4" id="card_num_4" class="billing-input billing-form__input billing-form__input_num" minlength="4" maxlength="4">
                         </div>
 
-                        <div class="billing-form__num-exp">
-                            <label for="expire_date">Expire date</label>
-                            <input type="number" name="expire_date" id="expire_date" class="billing-form__input billing-form__input_num" minlength="3" maxlength="3">
-
-                            <label for="cvv_code">CVV code <span class="billing-form__question">?</span></label>
-                            <input type="number" name="cvv_code" id="cvv_code" class="billing-form__input billing-form__input_num" minlength="3" maxlength="3">
+                        
+                        <div class="billing-form__num-exp">    
+                            <div class="billing-form__group">
+                                <label for="expire_date" class="billing-form__credit-label">Expire date</label>
+                                <input type="number" name="expire_date" id="expire_date" class="billing-input billing-form__input billing-form__input_num" minlength="3" maxlength="3">
+                            </div>
+                            
+                            <div class="billing-form__group">
+                                <label for="cvv_code" class="billing-form__credit-label">CVV code <span class="billing-form__question">?</span></label>
+                                <input type="number" name="cvv_code" id="cvv_code" class="billing-input billing-form__input billing-form__input_num" minlength="3" maxlength="3">
+                            </div>
                         </div>
                     </div>
+                    <div class="billing-form__rules">
+                        <div class="billing-form__chekbox-group">
+                            <input type="checkbox" name="save_infornation" id="save_infornation" class="billing-form__checkbox">
+                            <label for="save_infornation" class="billing-form__checkbox-label">Save information of this credit card</label>
+                        </div>
 
-                    <input type="checkbox" name="save_infornation" id="save_infornation" class="billing-form__checkbox">
-                    <label for="save_infornation">Save information of this credit card</label>
-
-                    <input type="checkbox" name="privacy_policies" id="privacy_policies" class="billing-form__checkbox">
-                    <label for="privacy_policies">I accept the <a href="#">terms and comditions</a> and the <a href="#">Privacy Policies</a></label>
+                        <div class="billing-form__chekbox-group">
+                            <input type="checkbox" name="privacy_policies" id="privacy_policies" class="billing-form__checkbox">
+                            <label for="privacy_policies" class="billing-form__checkbox-label">I accept the <a href="#">terms and comditions</a> and the <a href="#">Privacy Policies</a></label>
+                        </div>
+                    </div>
 
                     <div class="billing-form__buttons">
                         <button class="billing-form__back">
