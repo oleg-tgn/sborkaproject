@@ -17,9 +17,8 @@
     <header class="header">
         <a href="#" class="header__logo">
             <img src="img/logo.svg" alt="logo">
-            
         </a>
-        <ul class="header-menu hide-on-mobile">
+        <ul class="header-menu header-menu_desktop">
             <li class="header-menu__item">
                 <a href="#" class="header-menu__link">Women’s</a>
             </li>
@@ -56,24 +55,24 @@
     <section class="main">
         <section class="content">
             <div class="shop-steps">
-                <div class="shop-steps__step">
-                    <span class="shop-steps__num">1</span>
+                <div class="shop-steps__item">
+                    <span class="shop-steps__count">1</span>
                     <span class="shop-steps__label">Account</span>                        
                 </div> 
-                <div class="shop-steps__step">
-                    <span class="shop-steps__num">2</span>
+                <div class="shop-steps__item">
+                    <span class="shop-steps__count">2</span>
                     <span class="shop-steps__label">Shipping</span>
                 </div>            
-                <div class="shop-steps__step">
-                    <span class="shop-steps__num shop-steps__num_active">3</span>
+                <div class="shop-steps__item">
+                    <span class="shop-steps__count shop-steps__count_active">3</span>
                     <span class="shop-steps__label">Billing</span>
                 </div>            
-                <div class="shop-steps__step">
-                    <span class="shop-steps__num shop-steps__num_inactive">4</span>
+                <div class="shop-steps__item">
+                    <span class="shop-steps__count shop-steps__num_inactive">4</span>
                     <span class="shop-steps__label">Review</span>
                 </div>              
-                <div class="shop-steps-progress">
-                    <div class="shop-steps-progress__active"></div>
+                <div class="shop-steps__progress">
+                    <div class="shop-steps__progress-active"></div>
                 </div>      
             </div>
             <div class="billing">
@@ -138,7 +137,7 @@
             </div>
         </section>
         <section class="sidebar" v-bind:class="{ visible: isSidebarVisibleMobile }">
-            <div class="sidebar__section mobile-only">
+            <div class="sidebar__section sidebar__section_mobile">
                 <ul class="header-menu">
                     <li class="header-menu__item">
                         <a href="#" class="header-menu__link">Women’s</a>

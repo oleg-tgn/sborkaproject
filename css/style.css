@@ -18,16 +18,6 @@ ul {
     list-style-type: none;
 }
 
-@media (max-width: 1024px) {
-    .hide-on-mobile {
-        display: none !important;
-    }
-}
-@media (min-width: 1025px) {
-    .mobile-only {
-        display: none !important;
-    }
-}
 
 /* Header */
 .header {
@@ -46,6 +36,19 @@ ul {
     font-size: 14px;
     line-height: 1;
 }
+
+@media (max-width: 1024px) {
+    .header-menu_desktop {
+        display: none;
+    }
+}
+
+@media (min-width: 1024px) {
+    .header-menu_mobile {
+        display: none;
+    }
+}
+
 .header-actions__burger {
     display: none;
 }
@@ -77,6 +80,7 @@ ul {
 }
 
 .header-actions__search {
+    display: inline-block;
     margin-right: 20px;
 }
 
@@ -129,56 +133,59 @@ ul {
 
 /* Steps */
 .shop-steps {
-    position: relative;
-    width: 100%;
+    position: relative;    
     height: 50px;
+    margin-left: 35px;
+    margin-right: 35px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
 
-.shop-steps-progress {
+.shop-steps__progress {
     position: absolute;
     top: 8px;
-    left: 25px;
-    right: 20px;
+    left: 0;
+    right: 0;
     height: 1px;
     background: #d5d5d5;
     z-index: 0;
 }
 
-.shop-steps-progress__active {
-    width: calc(66.66% + 20px);
+.shop-steps__progress-active {
+    width: 66.66%;
     height: 1px;
     background: #3366ff;
 }
 
-.shop-steps__step {
+.shop-steps__item {
     position: absolute;
     z-index: 10;
     display: flex;
+    width: 70px;
+    transform: translateX(-50%);
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.shop-steps__step:nth-child(1) {
+.shop-steps__item:nth-child(1) {
     left: 0;
 }
 
-.shop-steps__step:nth-child(2) {
+.shop-steps__item:nth-child(2) {
     left: 33.33%;
 }
 
-.shop-steps__step:nth-child(3) {
+.shop-steps__item:nth-child(3) {
     left: 66.66%;
 }
 
-.shop-steps__step:nth-child(4) {
-    right: 0;
+.shop-steps__item:nth-child(4) {
+    left: 100%;
 }
 
-.shop-steps__num {
+.shop-steps__count {
     position: relative;
     display: flex;
     justify-content: center;
@@ -469,6 +476,12 @@ ul {
 
 .sidebar__section:last-child {
     border-bottom: none;
+}
+
+@media (min-width: 1024px) {
+    .sidebar__section_mobile {
+        display: none;
+    }
 }
 
 .sidebar__heading {
