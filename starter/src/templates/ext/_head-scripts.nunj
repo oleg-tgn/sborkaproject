@@ -87,5 +87,5 @@
 
 			xhr.send('');
 		})();
-	</script>
+	</script>	
 {% endmacro %}

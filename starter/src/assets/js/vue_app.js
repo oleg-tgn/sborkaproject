@@ -1,7 +1,7 @@
 var app = new Vue({
     el: '#app',
+    message: "Hello Vue",
     data: {
-      message: 'Hello Vue!',
       basket: [
           {
               img: "img/jacket.png",

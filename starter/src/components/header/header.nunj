@@ -1,5 +1,41 @@
-<div class="header">
-	<div class="container">
-		{{ menu() }}
+<header class="header">
+	<a href="#" class="header__logo">
+		<img src="assets/images/logo.svg" alt="logo">
+		
+	</a>
+	<ul class="header-menu hide-on-mobile">
+		<li class="header-menu__item">
+			<a href="#" class="header-menu__link">Women’s</a>
+		</li>
+		<li class="header-menu__item">
+			<a href="#" class="header-menu__link">Men’s</a>
+		</li>
+		<li class="header-menu__item">
+			<a href="#" class="header-menu__link">Home</a>
+		</li>
+		<li class="header-menu__item">
+			<a href="#" class="header-menu__link">Travel</a>
+		</li>
+		<li class="header-menu__item">
+			<a href="#" class="header-menu__link">Beauty</a>
+		</li>
+		<li class="header-menu__item">
+			<a href="#" class="header-menu__link">Sale</a>
+		</li>
+	</ul>
+	<div class="header-actions">
+		<a href="#" class="header-actions__search">
+			<img src="assets/images/search.svg" alt="search">
+		</a>
+		<a href="#" class="header-actions__basket">
+			<span class="header-actions__basket-count">			
+			{% raw %} {{ basket.length }} {% endraw %}			
+			</span>
+			<img src="assets/images/basket.svg" alt="basket">
+		</a>
+
+		<a href="#" class="header-actions__burger" @click="isSidebarVisibleMobile = !isSidebarVisibleMobile">
+			<img src="assets/images/burger.svg" alt="menu">
+		</a>
 	</div>
-</div>
+</header>

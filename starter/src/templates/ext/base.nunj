@@ -7,8 +7,6 @@
 		<title>{% block title %}SP.shop{% endblock %}</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-		
-
 		{% block stylesheets %}
 			<link rel="stylesheet" href="assets/css/styles.css?hash" />
 		{% endblock stylesheets %}
@@ -16,14 +14,15 @@
 		<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>	
 	</head>
 	<body>
-
-		<div class="wrapper">
+		<div id="app">			
 			{% block content %}
 			{% endblock content %}
 		</div>
+	
 
-		{% block scripts %}					
-			<script src="assets/js/main.js"></script>
+		{% block scripts %}
+			{# <script src="assets/js/bundle.js?hash"></script> #}
+			<script src="assets/js/vue_app.js"></script>
 		{% endblock scripts %}
 	</body>
 </html>

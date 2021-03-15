@@ -11,50 +11,185 @@
 
 	{% include '../../components/header/header.nunj' %}
 
-	<div class="container">
+    {% raw %}
+	<section class="main">
+        <section class="content">
+            <div class="shop-steps">
+                <div class="shop-steps__step">
+                    <span class="shop-steps__num">1</span>
+                    <span class="shop-steps__label">Account</span>                        
+                </div> 
+                <div class="shop-steps__step">
+                    <span class="shop-steps__num">2</span>
+                    <span class="shop-steps__label">Shipping</span>
+                </div>            
+                <div class="shop-steps__step">
+                    <span class="shop-steps__num shop-steps__num_active">3</span>
+                    <span class="shop-steps__label">Billing</span>
+                </div>            
+                <div class="shop-steps__step">
+                    <span class="shop-steps__num shop-steps__num_inactive">4</span>
+                    <span class="shop-steps__label">Review</span>
+                </div>              
+                <div class="shop-steps-progress">
+                    <div class="shop-steps-progress__active"></div>
+                </div>      
+            </div>
+            <div class="billing">
+                <h1 class="billing__heading">Billing Information</h1>
+                <form action="#" class="billing-form">
+                    <div class="billing-form__paymethod">
+                        <input type="radio" id="credit_card" name="pay_method" value="credit_card" class="billing-form__radio" checked v-model="paymethod">
+                        <label for="credit_card" class="billing-form__radio-label" >Pay with Credit Card</label>
 
-		<div style="padding:20px 0;">
-			{{ button({
-				className: '',
-				children: 'Buy something',
-				chevronRight: true
-			}) }}
-		</div>
+                        <input type="radio" id="paypal" name="pay_method" value="paypal" class="billing-form__radio" v-model="paymethod">
+                        <label for="paypal" class="billing-form__radio-label"><img src="assets/images/paypal.svg" alt=""></label><br>
+                    </div>
 
-		<div style="padding:20px 0;">
-			
-			<h2 style="margin-bottom: 15px;">Пример использования циклов и функции range():</h2>
-			
-			<div class="row">
-				{% for i in range(1, 13)  %}
-					<span>{{ i }}</span>
-				{% endfor %}
-			</div>
+                    <div class="billing-form__creditcard" v-if="paymethod == 'credit_card'">
+                        <label for="name_of_card" class="billing-form__credit-label">Name on card</label>
+                        <input type="text" placeholder="Placeholder Text" name="name_of_card" id="name_of_card" class="billing-form__input billing-form__input billing-form__input_name">
 
-		</div>
+                        <label for="card_number_1" class="billing-form__credit-label">Card number</label>
+                        <div class="billing-form__num-row">
+                            <input type="number" name="card_number_1" id="card_num_1" class="billing-form__input billing-form__input_num" minlength="4" maxlength="4">
+                            <input type="number" name="card_number_2" id="card_num_2" class="billing-form__input billing-form__input_num" minlength="4" maxlength="4">
+                            <input type="number" name="card_number_3" id="card_num_3" class="billing-form__input billing-form__input_num" minlength="4" maxlength="4">
+                            <input type="number" name="card_number_4" id="card_num_4" class="billing-form__input billing-form__input_num" minlength="4" maxlength="4">
+                        </div>
+                        
+                        <div class="billing-form__num-exp">    
+                            <div class="billing-form__group">
+                                <label for="expire_date" class="billing-form__credit-label">Expire date</label>
+                                <input type="number" name="expire_date" id="expire_date" class="billing-form__input billing-form__input_num" minlength="3" maxlength="3">
+                            </div>
+                            
+                            <div class="billing-form__group">
+                                <label for="cvv_code" class="billing-form__credit-label">CVV code <span class="billing-form__question">?</span></label>
+                                <input type="number" name="cvv_code" id="cvv_code" class="billing-form__input billing-form__input_num" minlength="3" maxlength="3">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="billing-form__creditcard" v-if="paymethod == 'paypal'">
+                        Paypal payment method
+                    </div>
+                    <div class="billing-form__rules">
+                        <div class="billing-form__chekbox-group">
+                            <input type="checkbox" name="save_infornation" id="save_infornation" class="billing-form__checkbox" checked>
+                            <label for="save_infornation" class="billing-form__checkbox-label">Save information of this credit card</label>
+                        </div>
 
-		<div style="padding:20px 0;">
+                        <div class="billing-form__chekbox-group">
+                            <input type="checkbox" name="privacy_policies" id="privacy_policies" class="billing-form__checkbox">
+                            <label for="privacy_policies" class="billing-form__checkbox-label">I accept the <a href="#">terms and comditions</a> and the <a href="#">Privacy Policies</a></label>
+                        </div>
+                    </div>
 
-			<h2 style="margin-bottom: 15px;">Пример с переменными:</h2>
+                    <div class="billing-form__buttons">
+                        <button class="billing-form__btn billing-form__btn_back">
+                            Back
+                        </button>
+                        <button type="submit" class="billing-form__btn billing-form__btn_checkout">
+                            Check Out
+                        </button>
+                    </div>
+                </form>                
+            </div>
+        </section>
+        <section class="sidebar" v-bind:class="{ visible: isSidebarVisibleMobile }">
+            <div class="sidebar__section mobile-only">
+                <ul class="header-menu">
+                    <li class="header-menu__item">
+                        <a href="#" class="header-menu__link">Women’s</a>
+                    </li>
+                    <li class="header-menu__item">
+                        <a href="#" class="header-menu__link">Men’s</a>
+                    </li>
+                    <li class="header-menu__item">
+                        <a href="#" class="header-menu__link">Home</a>
+                    </li>
+                    <li class="header-menu__item">
+                        <a href="#" class="header-menu__link">Travel</a>
+                    </li>
+                    <li class="header-menu__item">
+                        <a href="#" class="header-menu__link">Beauty</a>
+                    </li>
+                    <li class="header-menu__item">
+                        <a href="#" class="header-menu__link">Sale</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="sidebar__section">
+                <h2 class="sidebar__heading">My basket</h2>
+                <p v-if="basket.length == 0">Basket is empty</p>
+                <ul class="sidebar__basket">
+                    <li class="sidebar-basket-item" v-for="(item, index) in basket">
+                        <div class="sidebar-basket-item__img">                    
+                            <img :src="item.img" :alt="item.name">
+                        </div>
+                        <div class="sidebar-basket-item__data">
+                            <span class="sidebar-basket-item__name">{{ item.name }}</span>
 
-			{% for item in someData %}
-				<div style="margin-bottom: 15px;">
-					<h3>{{ item.title }}</h3>
-					<p>{{ item.text }}</p>
-				</div>
-			{% endfor %}
-
-		</div>
-
-		{# Пример с функциями #}
-		<p style="margin-bottom: 20px;">{{ addAwesome('Это текст для теста функций') }}</p>
-
-		{% if DEVELOP %}
-			<div class="debug" style="margin-bottom: 20px;">
-				<h2 style="margin-bottom: 15px;">Debug:</h2>
-				<p>Эта информация будет выводиться только при DEVELOP = true.</p>
-			</div>
-		{% endif %}
-
-	</div>
+                            <div class="sidebar-basket-item__price-row">
+                                <div class="sidebar-basket-item__count-wrap">
+                                    <button class="sidebar-basket-item__minus" @click="minusCount(index)">
+                                        <img src="assets/images/minus_btn.svg" alt="minus">
+                                    </button>
+                                    <input type="number" class="sidebar-basket-item__count" value="" v-model="item.count" v-on:change="checkCount(index)">
+                                    <button class="sidebar-basket-item__plus" @click="plusCount(index)">
+                                        <img src="assets/images/plus_btn.svg" alt="plus">
+                                    </button>
+                                </div>
+                                <span class="sidebar-basket-item__price">$ {{ item.price * item.count }}</span>
+                            </div>                        
+                        </div>
+                        
+                        <div class="sidebar-basket-item__delete">
+                            <a href="#" class="sidebar-basket-item__delete-btn" @click="deleteItem(index)">
+                                <img src="assets/images/del_btn.svg" alt="del">
+                            </a>
+                        </div>
+                    </li>                   
+                </ul>
+            </div>  
+            <div class="sidebar__section">                
+                <h2 class="sidebar__heading">Promo code</h2>
+                <div class="sidebar__promo">
+                    <form action="#" class="promocode-form">
+                        <input type="text" class="billing-form__input billing-form__input_promocode" placeholder="Placeholder Text" v-model="promocode">
+                        <button type="button" class="billing-form__btn billing-form__btn_checkout promocode-form__btn" @click="applyPromocode()">
+                            Apply
+                        </button>                        
+                    </form>
+                </div>
+            </div>
+            <div class="sidebar__section">        
+                <div class="sidebar__total-price">
+                    <div class="total-price">               
+                        <div class="total-price__row">
+                            <span class="total-price__label">Subtotal</span>
+                            <span class="total-price__value">${{ getSubtotal }}</span>
+                        </div>
+                        <div class="total-price__row">
+                            <span class="total-price__label">Tax</span>
+                            <span class="total-price__value">${{ tax }}</span>
+                        </div>
+                        <div class="total-price__row">
+                            <span class="total-price__label">Shipping</span>
+                            <span class="total-price__value">${{ shipping }}</span>
+                        </div>
+                        <div class="total-price__row" v-if="discount != 0">
+                            <span class="total-price__label">Discount</span>
+                            <span class="total-price__value">${{ discount }}</span>
+                        </div>
+                        <div class="total-price__row total-price__row_main">
+                            <span class="total-price__label">Total</span>
+                            <span class="total-price__value">${{ getTotal }}</span>
+                        </div>
+                    </div>  
+                </div>
+            </div>
+        </section>
+    </section>
+    {% endraw %}
 {% endblock content %}

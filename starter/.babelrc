@@ -24,7 +24,7 @@
 					"classes": "./src/assets/js/classes",
 					"helpers": "./src/assets/js/helpers",
 					"modules": "./src/assets/js/modules",
-					"utils": "./src/assets/js/utils"
+					"utils": "./src/assets/js/utils"					
 				}
 			}
 		]
