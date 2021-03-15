@@ -14,6 +14,11 @@ a {
     color: #000;
 }
 
+a:hover {
+    cursor: pointer;
+    opacity: 0.8;
+}
+
 ul {
     list-style-type: none;
 }
@@ -125,7 +130,7 @@ ul {
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     .content {
         padding: 20px 20px;
     }
@@ -223,29 +228,48 @@ ul {
     margin: 0 auto;
 }
 
-.billing__heading {
+.billing__title {
     font-size: 18px;
     line-height: 1;
     margin-top: 60px;
+    margin-bottom: 40px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     .billing__heading {
         margin-top: 30px;
     }
 }
 
-.billing-form__paymethod {
+/* Form */
+.form__paymethod {
     display: flex;
     flex-direction: row;
     margin-top: 40px;
 }
 
-.billing-form__radio {   
+.form__radio {   
     display: none;
 }
 
-.billing-form__radio + .billing-form__radio-label:before {
+.form__row {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.form__row_paymethod {
+    flex-direction: row;
+    margin-top: 40px;
+}
+
+.form__row_cart-num {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.form__radio + .form__radio-label:before {
     content: "";
     display: block;
     position: absolute;
@@ -258,7 +282,7 @@ ul {
     border-radius: 50%;    
 }
 
-.billing-form__radio:checked + .billing-form__radio-label:after {
+.form__radio:checked + .form__radio-label:after {
     content: "";
     position: absolute;
     top: 7px;
@@ -271,20 +295,20 @@ ul {
     background: #3366ff;    
 }
 
-.billing-form__radio-label {    
+.form__radio-label {    
     position: relative;
     margin-right: 80px;
     padding-left: 27px;
     font-size: 14px;
 }
 
-@media (max-width: 768px) {
-    .billing-form__radio-label {    
+@media (max-width: 767px) {
+    .form__radio-label {    
         margin-right: 20px;
     }
 }
 
-.billing-form__creditcard {
+.form__creditcard {
     width: 550px;
     max-width: 100%;
     margin-top: 20px;
@@ -296,24 +320,19 @@ ul {
     border-radius: 5px;
 }
 
-@media (max-width: 768px) {
-    .billing-form__creditcard {
+@media (max-width: 767px) {
+    .form__creditcard {
         margin-left: 0;
     }
 }
 
-
-.billing-form__credit-label {
+.form__label {
     display: block;
-    margin-top: 20px;
     font-size: 12px;
+    margin-bottom: 5px;
 }
 
-.billing-form__credit-label:first-child {
-    margin-top: 0;
-}
-
-.billing-form__input {
+.form__input {
     background: #ededf1;
     border: 0;
     border-radius: 3px;
@@ -321,81 +340,70 @@ ul {
     font-size: 14px;
 }
 
-.billing-form__input::placeholder {
+.form__input::placeholder {
     color: #8e90a6;
 }
 
-.billing-form__input {
-    margin-top: 5px;
-}
-
-.billing-form__input_name {
+.form__input_name {
     width: 100%;
 }
 
-.billing-form__input_promocode {
+.form__input_promocode {
     margin-right: 10px;
 }
 
-.billing-form__num-row {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
-.billing-form__input_num {
+.form__input_num {
     width: 100px;
 }
 
-.billing-form__input_num:not(:last-child) {
+.form__input_num:not(:last-child) {
     margin-right: 30px;
 }
 
-@media (max-width: 768px) {
-    .billing-form__input_num {
+@media (max-width: 767px) {
+    .form__input_num {
         width: 60px;
     }
 
-    .billing-form__input_num:not(:last-child) {
+    .form__input_num:not(:last-child) {
         margin-right: 10px;
     }
 }
 
-.billing-form__group {
-    margin-top: 20px;
+.form__group {
     margin-right: 30px;
 }
 
-@media (max-width: 768px) {
-    .billing-form__group {
+@media (max-width: 767px) {
+    .form__group {
         margin-right: 10px;
     }
 }
 
-.billing-form__num-exp {
+.form__num-exp {
     display: flex;
     flex-direction: row;
 }
 
-.billing-form__chekbox-group:not(:first-child) {
+.form__chekbox-group:not(:first-child) {
     margin-top: 15px;
 }
 
-.billing-form__rules {
+.form__rules {
     margin-top: 40px;
 }
 
-.billing-form__buttons {
+.form__buttons {
     display: flex;
     justify-content: space-between;
     margin-top: 40px;
 }
 
-.billing-form__checkbox {
+.form__checkbox {
     display: none;
 }
 
-.billing-form__checkbox-label {    
+.form__checkbox-label {    
     position: relative;
     display: inline-block;
     padding-left: 26px;
@@ -404,7 +412,7 @@ ul {
     color: #8c8c8c;
 }
 
-.billing-form__checkbox + .billing-form__checkbox-label:before {
+.form__checkbox + .form__checkbox-label:before {
     content: "";
     display: block;
     position: absolute;
@@ -416,7 +424,7 @@ ul {
     border: 1px solid #cfcfcf;  
 }
 
-.billing-form__checkbox:checked + .billing-form__checkbox-label:after {
+.form__checkbox:checked + .form__checkbox-label:after {
     content: "";
     position: absolute;
     top: 9px;
@@ -428,23 +436,40 @@ ul {
     background: #3366ff;    
 }
 
-.billing-form__btn {
+.form__question {
+    display: inline-block;
+    width: 13px;
+    height: 13px;
+    margin-left: 5px;
+    background: #dbdbdb;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 10px;
+    line-height: 13px;
+}
+    
+
+/* Buttons */
+.button {
     padding: 13px 30px;
     border-radius: 3px;
+    background: #3366ff;
+    border: 1px solid #3366ff; 
     font-size: 14px;    
     line-height: 1;
+    color: #ffffff;
 }
 
-.billing-form__btn_back {    
+.button:hover {
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+
+.button_light {    
     background: #ffffff;
     border: 1px solid #cfcfcf; 
     color: #000000;
-}
-
-.billing-form__btn_checkout {   
-    background: #3366ff;
-    border: 1px solid #3366ff; 
-    color: #ffffff;
 }
 
 /* sidebar */
@@ -522,7 +547,7 @@ ul {
     margin-top: 15px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     .sidebar-basket-item__price-row {
         flex-direction: column;
     }
@@ -549,6 +574,7 @@ ul {
     display: inline;
     background: none;
     border: none;
+    cursor: pointer;
 }
 
 .sidebar-basket-item__minus:focus,
