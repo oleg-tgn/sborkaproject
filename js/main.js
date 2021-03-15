@@ -3,13 +3,13 @@ var app = new Vue({
     data: {
       message: 'Hello Vue!',
       basket: [
-          {
-              img: "img/jacket.png",
-              name: "Amet minim mollit non deserunt ullamco est sit",
-              count: 1,
-              price: 525,              
-          },
-          {
+        {
+            img: "img/jacket.png",
+            name: "Amet minim mollit non deserunt ullamco est sit",
+            count: 1,
+            price: 525,              
+        },
+        {
             img: "img/sneakers.png",
             name: "Amet minim mollit non",
             count: 1,

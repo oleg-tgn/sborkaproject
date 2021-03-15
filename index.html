@@ -18,24 +18,24 @@
         <a href="#" class="header__logo">
             <img src="img/logo.svg" alt="logo">
         </a>
-        <ul class="header-menu header-menu_desktop">
-            <li class="header-menu__item">
-                <a href="#" class="header-menu__link">Women’s</a>
+        <ul class="menu menu_desktop">
+            <li class="menu__item">
+                <a href="#" class="menu__link">Women’s</a>
             </li>
-            <li class="header-menu__item">
-                <a href="#" class="header-menu__link">Men’s</a>
+            <li class="menu__item">
+                <a href="#" class="menu__link">Men’s</a>
             </li>
-            <li class="header-menu__item">
-                <a href="#" class="header-menu__link">Home</a>
+            <li class="menu__item">
+                <a href="#" class="menu__link">Home</a>
             </li>
-            <li class="header-menu__item">
-                <a href="#" class="header-menu__link">Travel</a>
+            <li class="menu__item">
+                <a href="#" class="menu__link">Travel</a>
             </li>
-            <li class="header-menu__item">
-                <a href="#" class="header-menu__link">Beauty</a>
+            <li class="menu__item">
+                <a href="#" class="menu__link">Beauty</a>
             </li>
-            <li class="header-menu__item">
-                <a href="#" class="header-menu__link">Sale</a>
+            <li class="menu__item">
+                <a href="#" class="menu__link">Sale</a>
             </li>
         </ul>
         <div class="header-actions">
@@ -68,7 +68,7 @@
                     <span class="shop-steps__label">Billing</span>
                 </div>            
                 <div class="shop-steps__item">
-                    <span class="shop-steps__count shop-steps__num_inactive">4</span>
+                    <span class="shop-steps__count shop-steps__count_inactive">4</span>
                     <span class="shop-steps__label">Review</span>
                 </div>              
                 <div class="shop-steps__progress">
@@ -79,11 +79,14 @@
                 <h1 class="billing__title">Billing Information</h1>
                 <form action="#" class="form">                
                     <div class="form__row form__row_paymethod">
-                        <input type="radio" id="credit_card" name="pay_method" value="credit_card" class="form__radio" checked v-model="paymethod">
-                        <label for="credit_card" class="form__radio-label" >Pay with Credit Card</label>
-
-                        <input type="radio" id="paypal" name="pay_method" value="paypal" class="form__radio" v-model="paymethod">
-                        <label for="paypal" class="form__radio-label"><img src="img/paypal.svg" alt=""></label><br>
+                        <div class="radio">   
+                            <input type="radio" id="credit_card" name="pay_method" value="credit_card" class="radio__input" checked v-model="paymethod">
+                            <label for="credit_card" class="radio__label" >Pay with Credit Card</label>
+                        </div>
+                        <div class="radio">
+                            <input type="radio" id="paypal" name="pay_method" value="paypal" class="radio__input" v-model="paymethod">
+                            <label for="paypal" class="radio__label"><img src="img/paypal.svg" alt=""></label><br>
+                        </div>
                     </div>
 
                     <div class="form__creditcard" v-if="paymethod == 'credit_card'">
@@ -92,23 +95,23 @@
                             <input type="text" placeholder="Placeholder Text" name="name_of_card" id="name_of_card" class="form__input">
                         </div>
 
-                        <label for="card_number_1" class="form__label">Card number</label>
+                        <label for="card_num_1" class="form__label">Card number</label>
                         <div class="form__row form__row_cart-num">
-                            <input type="number" name="card_number_1" id="card_num_1" class="form__input form__input_num" minlength="4" maxlength="4">
-                            <input type="number" name="card_number_2" id="card_num_2" class="form__input form__input_num" minlength="4" maxlength="4">
-                            <input type="number" name="card_number_3" id="card_num_3" class="form__input form__input_num" minlength="4" maxlength="4">
-                            <input type="number" name="card_number_4" id="card_num_4" class="form__input form__input_num" minlength="4" maxlength="4">
+                            <input type="number" name="card_number_1" id="card_num_1" class="form__input form__input_num">
+                            <input type="number" name="card_number_2" id="card_num_2" class="form__input form__input_num">
+                            <input type="number" name="card_number_3" id="card_num_3" class="form__input form__input_num">
+                            <input type="number" name="card_number_4" id="card_num_4" class="form__input form__input_num">
                         </div>
                         
                         <div class="form__num-exp">    
                             <div class="form__group">
                                 <label for="expire_date" class="form__label">Expire date</label>
-                                <input type="number" name="expire_date" id="expire_date" class="form__input form__input_num" minlength="3" maxlength="3">
+                                <input type="number" name="expire_date" id="expire_date" class="form__input form__input_num">
                             </div>
                             
                             <div class="form__group">
                                 <label for="cvv_code" class="form__label">CVV code <span class="form__question">?</span></label>
-                                <input type="number" name="cvv_code" id="cvv_code" class="form__input form__input_num" minlength="3" maxlength="3">
+                                <input type="number" name="cvv_code" id="cvv_code" class="form__input form__input_num">
                             </div>
                         </div>
                     </div>
@@ -116,14 +119,14 @@
                         Paypal payment method
                     </div>
                     <div class="form__rules">
-                        <div class="form__chekbox-group">
-                            <input type="checkbox" name="save_infornation" id="save_infornation" class="form__checkbox" checked>
-                            <label for="save_infornation" class="form__checkbox-label">Save information of this credit card</label>
+                        <div class="chekbox">
+                            <input type="checkbox" name="save_infornation" id="save_infornation" class="checkbox__input" checked>
+                            <label for="save_infornation" class="checkbox__label">Save information of this credit card</label>
                         </div>
 
-                        <div class="form__chekbox-group">
-                            <input type="checkbox" name="privacy_policies" id="privacy_policies" class="form__checkbox">
-                            <label for="privacy_policies" class="form__checkbox-label">I accept the <a href="#">terms and comditions</a> and the <a href="#">Privacy Policies</a></label>
+                        <div class="chekbox">
+                            <input type="checkbox" name="privacy_policies" id="privacy_policies" class="checkbox__input">
+                            <label for="privacy_policies" class="checkbox__label">I accept the <a href="#">terms and comditions</a> and the <a href="#">Privacy Policies</a></label>
                         </div>
                     </div>
 
@@ -140,54 +143,54 @@
         </section>
         <section class="sidebar" v-bind:class="{ visible: isSidebarVisibleMobile }">
             <div class="sidebar__section sidebar__section_mobile">
-                <ul class="header-menu">
-                    <li class="header-menu__item">
-                        <a href="#" class="header-menu__link">Women’s</a>
+                <ul class="menu">
+                    <li class="menu__item">
+                        <a href="#" class="menu__link">Women’s</a>
                     </li>
-                    <li class="header-menu__item">
-                        <a href="#" class="header-menu__link">Men’s</a>
+                    <li class="menu__item">
+                        <a href="#" class="menu__link">Men’s</a>
                     </li>
-                    <li class="header-menu__item">
-                        <a href="#" class="header-menu__link">Home</a>
+                    <li class="menu__item">
+                        <a href="#" class="menu__link">Home</a>
                     </li>
-                    <li class="header-menu__item">
-                        <a href="#" class="header-menu__link">Travel</a>
+                    <li class="menu__item">
+                        <a href="#" class="menu__link">Travel</a>
                     </li>
-                    <li class="header-menu__item">
-                        <a href="#" class="header-menu__link">Beauty</a>
+                    <li class="menu__item">
+                        <a href="#" class="menu__link">Beauty</a>
                     </li>
-                    <li class="header-menu__item">
-                        <a href="#" class="header-menu__link">Sale</a>
+                    <li class="menu__item">
+                        <a href="#" class="menu__link">Sale</a>
                     </li>
                 </ul>
             </div>
             <div class="sidebar__section">
                 <h2 class="sidebar__heading">My basket</h2>
                 <p v-if="basket.length == 0">Basket is empty</p>
-                <ul class="sidebar__basket">
-                    <li class="sidebar-basket-item" v-for="(item, index) in basket">
-                        <div class="sidebar-basket-item__img">                    
+                <ul class="basket-list">
+                    <li class="basket-list__item" v-for="(item, index) in basket">
+                        <div class="basket-list__img">                    
                             <img :src="item.img" :alt="item.name">
                         </div>
-                        <div class="sidebar-basket-item__data">
-                            <span class="sidebar-basket-item__name">{{ item.name }}</span>
+                        <div class="basket-list__data">
+                            <span class="basket-list__name">{{ item.name }}</span>
 
-                            <div class="sidebar-basket-item__price-row">
-                                <div class="sidebar-basket-item__count-wrap">
-                                    <button class="sidebar-basket-item__minus" @click="minusCount(index)">
+                            <div class="basket-list__price-row">
+                                <div class="basket-list__count-wrap">
+                                    <button class="basket-list__minus" @click="minusCount(index)">
                                         <img src="img/minus_btn.svg" alt="minus">
                                     </button>
-                                    <input type="number" class="sidebar-basket-item__count" value="" v-model="item.count" v-on:change="checkCount(index)">
-                                    <button class="sidebar-basket-item__plus" @click="plusCount(index)">
+                                    <input type="number" class="basket-list__count" value="" v-model="item.count" v-on:change="checkCount(index)">
+                                    <button class="basket-list__plus" @click="plusCount(index)">
                                         <img src="img/plus_btn.svg" alt="plus">
                                     </button>
                                 </div>
-                                <span class="sidebar-basket-item__price">$ {{ item.price * item.count }}</span>
+                                <span class="basket-list__price">$ {{ item.price * item.count }}</span>
                             </div>                        
                         </div>
                         
-                        <div class="sidebar-basket-item__delete">
-                            <a href="#" class="sidebar-basket-item__delete-btn" @click="deleteItem(index)">
+                        <div class="basket-list__delete">
+                            <a href="#" class="basket-list__delete-btn" @click="deleteItem(index)">
                                 <img src="img/del_btn.svg" alt="del">
                             </a>
                         </div>
@@ -197,8 +200,8 @@
             <div class="sidebar__section">                
                 <h2 class="sidebar__heading">Promo code</h2>
                 <div class="sidebar__promo">
-                    <form action="#" class="promocode-form">
-                        <input type="text" class="form__input form__input_promocode" placeholder="Placeholder Text" v-model="promocode">
+                    <form action="#" class="promocode-form">                        
+                        <input type="text" class="form__input form__input_promocode" placeholder="Placeholder Text" v-model="promocode">                        
                         <button type="button" class="button" @click="applyPromocode()">
                             Apply
                         </button>                        
